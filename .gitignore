@@ -1,0 +1,7 @@
+.idea/
+.nyc_output/
+.npm
+.DS_Store
+node_modules/
+dist/
+package-lock.json

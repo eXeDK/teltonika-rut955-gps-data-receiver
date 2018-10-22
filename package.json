@@ -1,0 +1,33 @@
+{
+  "name": "teltonika-rut955-gps-data-receiver",
+  "version": "0.5.0",
+  "description": "Receive GPS data from a Teltonika RUT955",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm run clean && npm run lint && tsc --version && tsc --pretty",
+    "clean": "rimraf dist",
+    "lint": "tslint --force --format verbose \"src/**/*.ts\" \"test/**/*.ts\" \"examples/**/*.ts\"",
+    "test": "mocha --require ts-node/register --recursive **/*_spec.ts"
+  },
+  "author": "Thomas Stig Jacobsen <tsj@lunarway.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/chai": "4.1.4",
+    "@types/core-js": "2.5.0",
+    "@types/loglevel": "1.5.3",
+    "@types/mocha": "5.2.5",
+    "@types/node": "10.9.2",
+    "chai": "4.1.2",
+    "mocha": "5.2.0",
+    "rimraf": "2.6.2",
+    "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "tslint-config-standard": "8.0.1",
+    "tslint-eslint-rules": "5.4.0",
+    "typescript": "3.0.1"
+  },
+  "dependencies": {
+    "decimal.js": "10.0.1",
+    "loglevel": "1.6.1"
+  }
+}
