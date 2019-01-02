@@ -1,6 +1,6 @@
 {
   "name": "teltonika-data-receiver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Receive GPS data from a Teltonika (RUT955) device",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
