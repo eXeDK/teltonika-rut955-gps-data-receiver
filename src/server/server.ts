@@ -91,5 +91,9 @@ export class TCPServer extends EventEmitter {
         return
       }
     })
+    socket.on('error', error => {
+      log.info('Got an error with the connection to "' + socket.remoteAddress + '", socket was closed')
+      log.info('Error was: ' + JSON.stringify(error))
+    })
   }
 }
