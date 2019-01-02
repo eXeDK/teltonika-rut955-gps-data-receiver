@@ -1,13 +1,11 @@
 'use strict'
-import * as log from 'loglevel'
 import * as net from 'net'
 import { TCPEncoder } from '../encoder/tcp/tcp_encoder'
 import { TCPPacket, TCPPacketType } from '../model/tpc/tcp_packet'
 import { EventEmitter } from 'events'
 
 export interface TCPServerOptions {
-  allowedImeis: Array<string>,
-  logLevel: log.LogLevelDesc
+  allowedImeis: Array<string>
 }
 
 export class TCPServer extends EventEmitter {
@@ -19,15 +17,8 @@ export class TCPServer extends EventEmitter {
 
     this.allowedImeis = new Set<string>()
 
-    // Set default log level
-    log.setDefaultLevel('info')
-
     if (options.allowedImeis !== null) {
       this.allowedImeis = new Set<string>(options.allowedImeis)
-    }
-
-    if (options.logLevel !== null) {
-      log.setLevel(options.logLevel)
     }
   }
 
