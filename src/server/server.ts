@@ -57,7 +57,9 @@ export class TCPServer extends EventEmitter {
         // Check if device is authenticated, if not: close the socket
         if (!this.allowedImeis.has(socketImei)) {
           log.debug('Client from "' + socket.remoteAddress + '" is not authenticated, socket was closed')
+          this.emit('failedAuthentication', tcpPacket)
           socket.end()
+          return
         }
 
         // Emit event
@@ -70,7 +72,9 @@ export class TCPServer extends EventEmitter {
         // Client has not yet authenticated, close the socket
         if (socketImei === null) {
           log.debug('Client from "' + socket.remoteAddress + '" did not authenticate, socket was closed')
+          this.emit('failedAuthentication', tcpPacket)
           socket.end()
+          return
         }
 
         // Set the IMEI on the packet for handling downstream
@@ -84,6 +88,7 @@ export class TCPServer extends EventEmitter {
         log.debug('Got malformed packet from "' + socket.remoteAddress + '", socket was closed')
         log.debug('Data from "' + socket.remoteAddress + '" as HEX: ' + data.toString('hex'))
         socket.end()
+        return
       }
     })
   }
