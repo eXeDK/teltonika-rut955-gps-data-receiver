@@ -35,7 +35,7 @@ export class TCPServer extends EventEmitter {
   }
 
   private handleConnection (socket: net.Socket): void {
-    log.info('Connection from: "' + socket.remoteAddress + '"')
+    console.info('Connection from: "' + socket.remoteAddress + '"')
     let socketImei = null
 
     socket.on('data', data => {
@@ -47,7 +47,7 @@ export class TCPServer extends EventEmitter {
 
         // Check if device is authenticated, if not: close the socket
         if (!this.allowedImeis.has(socketImei)) {
-          log.trace('Client from "' + socket.remoteAddress + '" is not authenticated, socket was closed')
+          console.debug('Client from "' + socket.remoteAddress + '" is not authenticated, socket was closed')
           socket.end()
         }
 
@@ -60,7 +60,7 @@ export class TCPServer extends EventEmitter {
       } else if (tcpPacket.type === TCPPacketType.Data) {
         // Client has not yet authenticated, close the socket
         if (socketImei === null) {
-          log.trace('Client from "' + socket.remoteAddress + '" did not authenticate, socket was closed')
+          console.debug('Client from "' + socket.remoteAddress + '" did not authenticate, socket was closed')
           socket.end()
         }
 
@@ -72,8 +72,8 @@ export class TCPServer extends EventEmitter {
 
         socket.write(TCPEncoder.encodeDataPacketLength(tcpPacket), 'hex')
       } else {
-        log.trace('Got malformed packet from "' + socket.remoteAddress + '", socket was closed')
-        log.trace('Data from "' + socket.remoteAddress + '" as HEX: ' + data.toString('hex'))
+        console.debug('Got malformed packet from "' + socket.remoteAddress + '", socket was closed')
+        console.debug('Data from "' + socket.remoteAddress + '" as HEX: ' + data.toString('hex'))
         socket.end()
       }
     })
