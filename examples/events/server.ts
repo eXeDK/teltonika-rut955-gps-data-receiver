@@ -3,7 +3,8 @@
 import { TCPServer, TCPServerOptions } from '../../src/server/server'
 
 const myServer = TCPServer.createServer({
-  allowedImeis: ['250124036312427']
+  allowedImeis: ['250124036312427'],
+  logLevel: 'trace'
 } as TCPServerOptions)
 
 myServer.listen(17050, '0.0.0.0', () => {
