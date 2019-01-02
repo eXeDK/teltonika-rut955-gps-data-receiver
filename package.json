@@ -9,7 +9,7 @@
     "clean": "rimraf dist",
     "lint": "tslint --force --format verbose \"src/**/*.ts\" \"test/**/*.ts\" \"examples/**/*.ts\"",
     "test": "mocha --require ts-node/register --recursive **/*_spec.ts",
-    "prepare": "npm run test && npm run clean && npm run lint && tsc --version && tsc --pretty --declaration"
+    "prepare": "npm run test && npm run clean && npm run lint && tsc --version && tsc --pretty --declaration --sourceMap false"
   },
   "author": "Thomas Stig Jacobsen <tsj@lunarway.com>",
   "license": "Apache-2.0",
