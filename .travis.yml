@@ -1,7 +1,8 @@
 language: nodejs
 cache: npm
 node_js:
-  - "10"
+  - 10
+  - node
 
 before_script:
   - npm install
