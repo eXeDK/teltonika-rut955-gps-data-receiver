@@ -5,9 +5,5 @@ node_js:
   - 10
   - node
 
-before_script:
-  - npm install
-
 script:
-  - npm run build
   - npm run test
