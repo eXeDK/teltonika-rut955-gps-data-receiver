@@ -1,7 +1,6 @@
 language: nodejs
-
-before_script:
-  - npm run build
+cache: npm
 
 script:
+  - npm run build
   - npm run test
