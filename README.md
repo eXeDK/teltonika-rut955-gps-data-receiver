@@ -1,4 +1,4 @@
-# Teltonika RUT955 data receiver ![Travis CI](https://travis-ci.org/eXeDK/teltonika-rut955-gps-data-receiver.svg?branch=master "Travis CI")
+# Teltonika RUT955 data receiver ![Travis CI](https://travis-ci.org/eXeDK/teltonika-rut955-gps-data-receiver.svg?branch=master "Travis CI") [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/eXeDK/teltonika-rut955-gps-data-receiver.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/eXeDK/teltonika-rut955-gps-data-receiver/context:javascript)
 This is a (simple) data receiver for a Teltonika RUT955 (and probably more of them if they use the same data format). It supports a TCP server right now and it'll decode the AVL packets for you. It'll decode all of the specific elements of the packet except for parsing the values of the IO elements (as of right now), instead it'll give you a [Buffer](https://nodejs.org/api/buffer.html) with the raw data in it.
 It is released and licensed under the Apache License 2.0.
 
