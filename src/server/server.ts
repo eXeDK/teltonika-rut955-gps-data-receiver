@@ -55,7 +55,7 @@ export class TCPServer extends EventEmitter {
         socketImei = tcpPacket.imei
 
         // Check if device is authenticated, if not: close the socket
-        if (!this.allowedImeis.has(socketImei)) {
+        if (this.allowedImeis.size > 0 && !this.allowedImeis.has(socketImei)) {
           log.debug('Client from "' + socket.remoteAddress + '" is not authenticated, socket was closed')
           this.emit('failedAuthentication', tcpPacket)
           socket.end()
